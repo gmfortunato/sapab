@@ -1,0 +1,1 @@
+{"version":3,"sources":["footer.scss","header.scss","menu.scss"],"names":[],"mappings":"AAAA;EACE,YAAY,EACb;;ACFD;EACE,YAAY,EACb;;ACFD;EACE,YAAY,EACb","file":"style.min.css","sourcesContent":["footer {\r\n  margin: 0px;\r\n}","header {\r\n  margin: 0px;\r\n}","nav{\r\n  margin: 0px;\r\n}"]}

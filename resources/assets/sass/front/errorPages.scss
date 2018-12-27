@@ -1,0 +1,113 @@
+.fullBanner {
+  padding-bottom: 46px;
+  background-image: url('../../images/layout/faixa-banner.png');
+  background-position: 50% 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  #fullBanner {
+
+    .carousel-inner {
+
+      .carousel-item {
+
+        .banner-mask {
+          background: #4962B8;
+
+          .banner-image {
+            opacity: 0.5;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            min-height: 500px;
+            height: auto;
+          }
+
+        }
+
+        .carousel-caption {
+          bottom: 120px;
+
+          h3 {
+            font-weight: bold;
+            line-height: normal;
+            font-size: 72px;
+            text-align: center;
+            color: #FFFFFF;
+            width: 100%;
+            margin-bottom: 40px;
+          }
+
+          a {
+            background: rgba(237, 28, 36, 1);
+            border-radius: 3px;
+            font-weight: bold;
+            line-height: normal;
+            font-size: 16px;
+            text-align: center;
+            color: #FFFFFF;
+            width: auto;
+            padding: 15px 50px 15px 50px;
+            -webkit-transition: ease all 0.3s; /* Safari */
+            transition: ease all 0.3s;
+
+            &:hover {
+              background: rgba(205, 27, 33, 1);
+              padding: 15px 55px 15px 55px;
+              text-decoration: none;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+}
+
+@media screen and (max-width: 1400px){
+  .fullBanner {
+    padding-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 1250px){
+  .fullBanner {
+    padding-bottom: 30px;
+  }
+
+  .fullBanner #fullBanner .carousel-inner .carousel-item .carousel-caption{
+    bottom: 80px;
+  }
+
+  .fullBanner #fullBanner .carousel-inner .carousel-item .carousel-caption h3 {
+    font-size: 60px;
+  }
+}
+
+@media screen and (max-width: 1100px){
+  .fullBanner {
+    padding-bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 960px){
+  .fullBanner {
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .fullBanner {
+    padding-bottom: 0px;
+    background-image: none;
+  }
+
+  .fullBanner #fullBanner .carousel-inner .carousel-item .carousel-caption h3 {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+}
