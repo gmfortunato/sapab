@@ -21,14 +21,15 @@
     
     <div class="login_wrapper">
         <div class="animate form login_form">
+            <div class="logo"><img src="{{asset('images/layout/logo.png')}}"/></div>
             <section class="login_content">
                 @if (session('status'))
                     <div class="alert alert-success">
                         {{ session('status') }}
                     </div>
                 @endif
-					{!! BootForm::open(['url' => url('/password/reset'), 'method' => 'post']) !!}
-                    <h1>Reset Password</h1>
+					{!! BootForm::open(['url' => url('admin/password/reset'), 'method' => 'post']) !!}
+                    <h1>Trocar Senha</h1>
                     
                     {!! BootForm::hidden('token', $token) !!}
 	
@@ -38,18 +39,14 @@
 	
 					{!! BootForm::password('password_confirmation', 'Confirmação de senha', ['placeholder' => 'Confirme sua senha']) !!}
 	
-					{!! BootForm::submit('Enviar', ['class' => 'btn btn-default col-md-9']) !!}
+                    <div>
+                        {!! BootForm::submit('Enviar', ['class' => 'btn btn-default submit']) !!}
+                        <p class="change_link">Já possui cadastro?
+                            <a href="{{ url('admin/login') }}" class="to_register"> Entrar</a>
+                        </p>
+                    </div>
 	
 					<div class="clearfix"></div>
-					
-                    <div class="separator">
-                        <p class="change_link">Já possui cadastro?
-                            <a href="{{ url('/login') }}" class="to_register"> Entrar </a>
-                        </p>
-                        
-                        <div class="clearfix"></div>
-                        <br />
-                    </div>
 
                     <div class="copyright">
                         <div>

@@ -5,7 +5,7 @@ namespace App\Models;
 use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class Places extends Model implements TableInterface
+class Place extends Model implements TableInterface
 {
     protected $fillable = [
         'title', 'address', 'city', 'state',

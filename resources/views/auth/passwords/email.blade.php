@@ -21,28 +21,26 @@
     
     <div class="login_wrapper">
         <div class="animate form login_form">
+            <div class="logo"><img src="{{asset('images/layout/logo.png')}}"/></div>
             <section class="login_content">
                 @if (session('status'))
                     <div class="alert alert-success">
                         {{ session('status') }}
                     </div>
                 @endif
-				{!! BootForm::open(['url' => url('/password/email'), 'method' => 'post']) !!}
-				<h1>Cadastrar nova senha</h1>
+				{!! BootForm::open(['url' => url('admin/password/email'), 'method' => 'post']) !!}
+				<h1>Trocar Senha</h1>
 	
-				{!! BootForm::email('email', 'Email', old('email'), ['placeholder' => 'Digite seu e-mail']) !!}
+				{!! BootForm::email('email', 'E-mail', old('email'), ['placeholder' => 'Digite seu e-mail']) !!}
 					
-				{!! BootForm::submit('Enviar', ['class' => 'btn btn-default col-md-9']) !!}
+                <div>
+                    {!! BootForm::submit('Enviar', ['class' => 'btn btn-default submit']) !!}
+                    <p class="change_link">Já possui cadastro?
+                        <a href="{{ url('admin/login') }}" class="to_register"> Entrar</a>
+                    </p>
+                </div>
 	
 				<div class="clearfix"></div>
-					
-				<div class="extraLinks">
-					<p class="change_link">Já possui cadastro?
-						<a href="{{ url('/login') }}" class="to_register"> Entrar </a>
-					</p>
-					
-					<div class="clearfix"></div>
-				</div>
 
                 <div class="copyright">
                     <div>

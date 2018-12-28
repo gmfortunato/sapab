@@ -20,7 +20,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Editar Ponto Credenciado</h2>
+                        <h2>Editar "{{ $faq->title }}"</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -39,4 +39,11 @@
 
     </div>
     <!-- /page content -->
+
+    <script>
+        tinymce.init({
+            selector: '#description'
+        });
+    </script>
 @endsection
+

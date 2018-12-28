@@ -91,6 +91,10 @@ h2{
       line-height: normal;
       font-size: 18px;
       color: #000000;
+
+      span:first-child:after{
+        content: " - ";
+      }
     }
 
     .etiqueta{
@@ -217,7 +221,7 @@ h2{
             text-align: center;
             color: #FFFFFF;
             float: left;
-            padding-top: 18px;
+            padding-top: 7px;
           }
 
           .titulo {
@@ -402,6 +406,14 @@ h2{
 @media screen and (max-width: 360px){
   .resultados .numeros{
     margin: 4px;
+  }
+
+  #proximos-sorteios .sorteio .texto span{
+    display: block;
+  }
+
+  #proximos-sorteios .sorteio .texto span:first-child:after{
+    content: "";
   }
 }
 

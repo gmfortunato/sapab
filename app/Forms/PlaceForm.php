@@ -4,10 +4,11 @@ namespace App\Forms;
 
 use Kris\LaravelFormBuilder\Form;
 
-class PlacesForm extends Form
+class PlaceForm extends Form
 {
     public function buildForm()
     {
+
         $this
             ->add('title', 'text', [
                 'label' => 'Ponto',
@@ -36,6 +37,7 @@ class PlacesForm extends Form
                 'error_messages' => [
                     'state.required' => 'O campo estado é obrigatório!',
                 ],
-            ]);
+            ])
+            ->add('return', 'button',['label' => 'Cancelar', 'attr' => ['class' => 'btn btn-default', 'onclick' => 'window.location.href="/admin/places"']]);
     }
 }

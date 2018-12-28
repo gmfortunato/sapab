@@ -1,58 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Gentellela Alela! | </title>
-    
-    <!-- Bootstrap -->
-    <link href="{{ asset("css/bootstrap.min.css") }}" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="{{ asset("css/font-awesome.min.css") }}" rel="stylesheet">
-    <!-- Custom Theme Style -->
-    <link href="{{ asset("css/gentelella.min.css") }}" rel="stylesheet">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	@include('includes.favicon')
+
+	<title>{{ $title ?? 'SAPAB de Prêmios - Login' }}</title>
+
+	@include('admin.includes.styles')
 
 </head>
 
 <body class="login">
-<div class="login_wrapper">
-    <div class="animate form login_form">
-        <section class="login_content">
-			{!! BootForm::open(['url' => url('/register'), 'method' => 'post']) !!}
-			
-			<h1>Create Account</h1>
+<div>
+	<div class="login_wrapper">
+		<div class="animate form login_form">
+			<div class="logo"><img src="{{asset('images/layout/logo.png')}}"/></div>
+			<section class="login_content">
+				{!! BootForm::open(['url' => url('admin/register'), 'method' => 'post']) !!}
 
-			{!! BootForm::text('name', 'Name', old('name'), ['placeholder' => 'Full Name']) !!}
+				<h1>Criar nova conta</h1>
 
-			{!! BootForm::email('email', 'Email', old('email'), ['placeholder' => 'Email']) !!}
+				{!! BootForm::text('name', 'Nome', old('name'), ['placeholder' => 'Nome Completo']) !!}
 
-			{!! BootForm::password('password', 'Password', ['placeholder' => 'Password']) !!}
+				{!! BootForm::email('email', 'E-mail', old('email'), ['placeholder' => 'E-mail']) !!}
 
-			{!! BootForm::password('password_confirmation', 'Password confirmation', ['placeholder' => 'Confirmation']) !!}
-		
-			{!! BootForm::submit('Register', ['class' => 'btn btn-default']) !!}
-		   
-			<div class="clearfix"></div>
-			
-			<div class="separator">
-				<p class="change_link">Already a member ?
-					<a href="{{ url('/login') }}" class="to_register"> Log in </a>
-				</p>
-				
-				<div class="clearfix"></div>
-				<br />
-				
+				{!! BootForm::password('password', 'Senha', ['placeholder' => 'Senha']) !!}
+
+				{!! BootForm::password('password_confirmation', 'Confirmação de senha', ['placeholder' => 'Confirmação de senha']) !!}
+
 				<div>
-					<h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-					<p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+					{!! BootForm::submit('Cadastrar', ['class' => 'btn btn-default']) !!}
+					<a class="reset_pass" href="{{  url('admin/password/reset') }}">Esqueceu sua senha?</a>
 				</div>
-			</div>
-			{!! BootForm::close() !!}
-        </section>
+
+				<div class="clearfix"></div>
+
+				<div class="copyright">
+					<div>
+						@include('includes.copyright')
+					</div>
+				</div>
+
+				{!! BootForm::close() !!}
+			</section>
+		</div>
     </div>
 </div>
 </body>

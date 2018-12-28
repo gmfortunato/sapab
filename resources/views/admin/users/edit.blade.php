@@ -20,12 +20,17 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Cadastro de Usuário</h2>
+                        <h2>Editar "{{$user->name}}"</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
 
-                        {!! form($form) !!}
+                        {!!
+                        form($form->add('edit','submit', [
+                            'attr' => ['class' => 'btn btn-primary'],
+                            'label' => 'Editar'
+                        ]))
+                        !!}
 
                     </div>
                 </div>

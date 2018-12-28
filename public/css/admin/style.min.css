@@ -1,10 +1,1 @@
-footer {
-  margin: 0px; }
-
-header {
-  margin: 0px; }
-
-nav {
-  margin: 0px; }
-
-/*# sourceMappingURL=style.min.css.map */
+.btn-filter-align{margin-top:23px}@media screen and (max-width:767px){.btn-filter-align{margin-top:0}}.site_title{text-align:center}.nav-sm .container.body .col-md-3.left_col{width:80px}.nav-sm footer{margin-left:80px}form{margin-bottom:25px}form .form-group>div{margin-bottom:10px}.table-responsive table tbody tr td{vertical-align:middle}.paginationBlock{text-align:center}@media screen and (max-width:767px){.page-title .title_left{width:auto}}footer,header{margin:0}body.login{transition:all .3s ease;background-color:#2a3f54;color:#2a3f54}body.login .login_wrapper{max-width:450px}body.login .login_wrapper .login_form{padding:20px 40px;background:#fff;box-shadow:0 0 60px rgba(0,0,0,.5),inset 0 1px 0 hsla(0,0%,100%,.9);border-radius:5px}body.login .login_wrapper .login_form .logo{text-align:center}body.login .login_wrapper .login_form .login_content form{margin:0}body.login .login_wrapper .login_form .login_content form h1:after,body.login .login_wrapper .login_form .login_content form h1:before{background:#2a3f54}body.login .login_wrapper .login_form .login_content form a,body.login .login_wrapper .login_form .login_content form a:hover{color:#2a3f54}body.login .login_wrapper .login_form .login_content form .change_link{line-height:38px;display:inline-block;margin:0}body.login .login_wrapper .login_form .login_content form .form-group{text-align:left}body.login .login_wrapper .login_form .login_content form .form-group label{font-size:14px}body.login .login_wrapper .login_form .login_content form .form-group .form-control{padding:10px 12px;height:auto;border-color:#2a3f54}body.login .login_wrapper .login_form .login_content form .form-group .form-control:placeholder{color:#2a3f54}body.login .login_wrapper .login_form .login_content form .form-group .btn{background:#003064;border-radius:3px;font-weight:700;line-height:normal;font-size:16px;text-align:center;color:#fff;width:auto;padding:10px 30px;border:none;transition:all .3s ease}body.login .login_wrapper .login_form .login_content form .form-group .btn:hover{background:rgba(0,48,100,.9);padding:10px 30px;text-decoration:none}body.login .login_wrapper .login_form .login_content form .copyright{margin:30px 0 0}nav{margin:0}

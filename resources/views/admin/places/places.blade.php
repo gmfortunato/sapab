@@ -9,7 +9,7 @@
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>Gerenciamento de usuários</h3>
+                        <h3>Gerenciamento de Pontos Credenciados</h3>
                     </div>
                     <div class="title_right">
                         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
@@ -32,9 +32,9 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Listagem de Usuários</h2>
+                                <h2>Listagem de Pontos Credenciados</h2>
                                 <ul class="nav navbar-right">
-                                    <a href="{{ url('admin/users/create') }}" class="btn btn-success">Cadastrar</a>
+                                    <a href="{{ url('admin/places/create') }}" class="btn btn-success">Cadastrar</a>
                                 </ul>
                                 <div class="clearfix"></div>
                             </div>
@@ -42,27 +42,12 @@
 
                                 <div class="row">
 
-                                    <form method="GET" action="admin/users" accept-charset="UTF-8">
+                                    <!-- FORMULÁRIO DE PESQUISA -->
 
-                                        <div class="form-group">
-                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                                                <label for="name" class="control-label">Nome</label>:
-                                                <input class="form-control" name="name" type="text" id="name">
-                                            </div>
-                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                                                <label for="email" class="control-label">E-mail</label>:
-                                                <input class="form-control" name="email" type="email" id="email">
-                                            </div>
-                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                                <input class="btn btn-success btn-filter-align" type="submit" value="Filtrar">
-                                            </div>
-                                        </div>
-
-                                    </form>
                                 </div>
 
                                 <div class="paginationBlock">
-                                    {!! $users->links() !!}
+                                    {!! $places->links() !!}
                                 </div>
 
                                 <div class="table-responsive">
@@ -70,19 +55,21 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th class="col-">Nome</th>
-                                                <th>E-mail</th>
-                                                <th class="text-center">Ações</th>
+                                                <th class="col-">Ponto</th>
+                                                <th>Endereço</th>
+                                                <th>Localização</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($users as $user)
-                                            <tr style="cursor: pointer;" onclick="javascript:location.href='{{ route('admin.users.show', ['user' => $user->id])}}'">
-                                                <td>{{ $user->id }}</td>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->email }}</td>
+                                            @foreach($places as $place)
+                                            <tr style="cursor: pointer;" onclick="javascript:location.href='{{ route('admin.places.show', ['place' => $place->id])}}'">
+                                                <td>{{ $place->id }}</td>
+                                                <td>{{ $place->title }}</td>
+                                                <td>{{ $place->address }}</td>
+                                                <td>{{ $place->city }} - {{ $place->state }}</td>
                                                 <td class="text-center">
-                                                    <a class="btn btn-primary" href="{{ route('admin.users.edit', ['user' => $user->id]) }}">Editar</a>
+                                                    <a class="btn btn-primary" href="{{ route('admin.places.edit', ['place' => $place->id]) }}">Editar</a>
                                                     <a class="btn btn-danger">Excluir</a>
                                                 </td>
                                             </tr>
@@ -91,18 +78,8 @@
                                     </table>
                                 </div>
 
-                                @php
-                                    $formDelete = FormBuilder::plain([
-                                        'id' => 'form-delete',
-                                        'url' => route('admin.users.destroy', ['user' => $user->id]),
-                                        'method' => 'DELETE',
-                                        'style' => 'display: none'
-                                    ])
-                                @endphp
-                                {!! form($formDelete) !!}
-
                                 <div class="paginationBlock">
-                                    {!! $users->links() !!}
+                                    {!! $places->links() !!}
                                 </div>
                             </div>
                         </div>

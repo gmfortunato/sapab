@@ -10,14 +10,14 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Visualização de usuário</h2>
+                        <h2>Visualização de "{{$place->title}}"</h2>
                         <div class="clearfix"></div>
                         <br>
                         <div class="btnsContainer">
                             @php
-                                $linkEdit = route('admin.users.edit', ['user' => $user->id]);
-                                $linkDelete = route('admin.users.destroy', ['user' => $user->id]);
-                                $linkReturn = route('admin.users.index');
+                                $linkEdit = route('admin.places.edit', ['place' => $place->id]);
+                                $linkDelete = route('admin.places.destroy', ['place' => $place->id]);
+                                $linkReturn = route('admin.places.index');
                             @endphp
                             {!! Button::primary('Editar')->asLinkTo($linkEdit) !!}
                             {!!
@@ -32,7 +32,7 @@
                             @php
                                 $formDelete = FormBuilder::plain([
                                     'id' => 'form-delete',
-                                    'url' => route('admin.users.destroy', ['user' => $user->id]),
+                                    'url' => route('admin.places.destroy', ['place' => $place->id]),
                                     'method' => 'DELETE',
                                     'style' => 'display: none'
                                 ])
@@ -47,18 +47,22 @@
                             <tbody>
                             <tr>
                                 <th scope="row">ID</th>
-                                <td>{{$user->id}}</td>
+                                <td>{{$place->id}}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Nome</th>
-                                <td>{{$user->name}}</td>
+                                <th scope="row">Ponto</th>
+                                <td>{{$place->title}}</td>
                             </tr>
                             <tr>
-                                <th scope="row">E-mail</th>
-                                <td>{{$user->email}}</td>
+                                <th scope="row">Endereço</th>
+                                <td>{{$place->address}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Localização</th>
+                                <td>{{$place->city}} - {{$place->state}}</td>
                             </tr>
                             </tbody>
-                        </table
+                        </table>
 
                     </div>
                 </div>

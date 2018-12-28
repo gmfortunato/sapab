@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLotteryTable extends Migration
+class CreateLotteriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,21 @@ class CreateLotteryTable extends Migration
      */
     public function up()
     {
-        Schema::create('lottery', function (Blueprint $table) {
+        Schema::create('lotteries', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
             $table->time('time');
-            $table->integer('place_kina')->unsigned();
-            $table->integer('place_kena')->unsigned();
-            $table->integer('card_kina')->unsigned();
-            $table->integer('card_keno')->unsigned();
+            $table->integer('number')->unsigned();
             $table->string('kina');
             $table->string('keno');
             $table->string('price');
+            $table->integer('place_kina')->unsigned();
+            $table->integer('place_keno')->unsigned();
+            $table->integer('card_kina')->unsigned();
+            $table->integer('card_keno')->unsigned();
 
             $table->foreign('place_kina')->references('id')->on('places');
-            $table->foreign('place_kena')->references('id')->on('places');
+            $table->foreign('place_keno')->references('id')->on('places');
 
             $table->timestamps();
         });
@@ -39,6 +40,7 @@ class CreateLotteryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lottery');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('lotteries');
     }
 }

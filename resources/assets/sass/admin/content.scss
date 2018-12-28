@@ -1,0 +1,60 @@
+.site_title{
+  text-align: center;
+}
+
+.nav-sm {
+  .container.body {
+    .col-md-3.left_col {
+      width: 80px;
+    }
+  }
+}
+
+.nav-sm footer{
+  margin-left: 80px;
+}
+
+form{
+  margin-bottom: 25px;
+
+  .form-group{
+
+    > div{
+      margin-bottom: 10px;
+    }
+
+  }
+
+}
+
+.table-responsive{
+
+  table{
+
+    tbody{
+
+      tr{
+
+        td{
+          vertical-align: middle;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.paginationBlock{
+  text-align: center;
+}
+
+
+
+@media screen and (max-width: 767px){
+  .page-title .title_left{
+    width: auto;
+  }
+}

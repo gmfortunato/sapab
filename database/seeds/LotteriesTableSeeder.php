@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\Lottery;
 use Illuminate\Database\Seeder;
 
-class LotteryTableSeeder extends Seeder
+class LotteriesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +12,14 @@ class LotteryTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Lottery::class, 50)->create();
+
+        //$places = \App\Models\Place::all();
+
+        factory(App\Models\Lottery::class,15)->create();
+           /* ->create()
+            ->each(function (Lottery $lottery) use($places){
+                $place = $places->random(20);
+
+            });*/
     }
 }

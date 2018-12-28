@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Sao_Paulo',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'pt-BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -148,6 +148,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,
+        Bootstrapper\BootstrapperL5ServiceProvider::class,
+        Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -213,6 +216,12 @@ return [
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class,
 		'BootForm' => Watson\BootstrapForm\Facades\BootstrapForm::class,
+        'Alert' => \Bootstrapper\Facades\Alert::class,
+        'Modal' => \Bootstrapper\Facades\Modal::class,
+        'Table' => \Bootstrapper\Facades\Table::class,
+        'Button' => \Bootstrapper\Facades\Button::class,
+        'FormBuilder' => \Kris\LaravelFormBuilder\Facades\FormBuilder::class,
+
     ],
 
 ];

@@ -13,8 +13,8 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <h3>Assista aos sorteios ao vivo!</h3>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn" href="#" role="button">Clique aqui!</a></p>
+                        <p>Você pode acompanhar o resultado dos sorteios em monitores nos pontos credenciados ou em nosso site.</p>
+                        <p><a class="btn" href="#pontos-credenciados" role="button">Veja os pontos credenciados</a></p>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <h3>A sorte ao seu alcance</h3>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p>Concorra a prêmios em dinheiro e ajude a SAPAB a atender famílias que necessitam da prevenção e tratamento do HIV.</p>
                         <p><a class="btn" href="#" role="button">Saiba mais</a></p>
                     </div>
                 </div>
@@ -36,9 +36,9 @@
                 </div>
                 <div class="container">
                     <div class="carousel-caption">
-                        <h3>Você está ajudando a SAPAB</h3>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn" href="#" role="button">Saiba mais</a></p>
+                        <h3>O coração da SAPAB em suas mãos!</h3>
+                        <p>Precisamos da sua ajuda para não deixar que este coração pare de bater.</p>
+                        <p><a class="btn" href="#duvidas-frequentes" role="button">Saiba mais</a></p>
                     </div>
                 </div>
             </div>

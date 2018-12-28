@@ -6,31 +6,59 @@
     <div class="right_col" role="main">
 
         <div class="row">
-            <div class="content-message">
-                @if(Session::has('success'))
-                    <div class="container">
-                        {!! Alert::success(Session::get('success'))->close()  !!}
-                    </div>
-                @elseif(Session::has('error'))
-                    <div class="container">
-                        {!! Alert::danger(Session::get('error'))->close() !!}
-                    </div>
-                @endif
-            </div>
+
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Cadastro de usuário</h2>
+                        <h2>Visualização de "{{$user->name}}"</h2>
                         <div class="clearfix"></div>
+                        <br>
+                        <div class="btnsContainer">
+                            @php
+                                $linkEdit = route('admin.users.edit', ['user' => $user->id]);
+                                $linkDelete = route('admin.users.destroy', ['user' => $user->id]);
+                                $linkReturn = route('admin.users.index');
+                            @endphp
+                            {!! Button::primary('Editar')->asLinkTo($linkEdit) !!}
+                            {!!
+                                Button::danger('Excluir')->asLinkTo($linkDelete)
+                                ->addAttributes([
+                                    'onclick' => "event.preventDefault();document.getElementById(\"form-delete\").submit();"
+                                ]);
+                            !!}
+                            {!!
+                                Button::withValue('Voltar')->asLinkTo($linkReturn);
+                            !!}
+                            @php
+                                $formDelete = FormBuilder::plain([
+                                    'id' => 'form-delete',
+                                    'url' => route('admin.users.destroy', ['user' => $user->id]),
+                                    'method' => 'DELETE',
+                                    'style' => 'display: none'
+                                ])
+                            @endphp
+                            {!! form($formDelete) !!}
+                        </div>
+                        <br>
                     </div>
                     <div class="x_content">
 
-                        {!!
-                        form($form->add('input','submit', [
-                            'attr' => ['class' => 'btn btn-primary '],
-                            'label' => 'Salvar'
-                        ]))
-                        !!}
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr>
+                                <th scope="row">ID</th>
+                                <td>{{$user->id}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Nome</th>
+                                <td>{{$user->name}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">E-mail</th>
+                                <td>{{$user->email}}</td>
+                            </tr>
+                            </tbody>
+                        </table
 
                     </div>
                 </div>

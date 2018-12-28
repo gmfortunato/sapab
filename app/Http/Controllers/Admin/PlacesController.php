@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Places;
+use App\Forms\PlaceForm;
+use App\Models\Place;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Kris\LaravelFormBuilder\Form;
 
 class PlacesController extends Controller
 {
@@ -14,7 +17,8 @@ class PlacesController extends Controller
      */
     public function index()
     {
-        //
+        $places = Place::paginate(10);
+        return view('admin.places.places', compact('places'));
     }
 
     /**
@@ -24,7 +28,12 @@ class PlacesController extends Controller
      */
     public function create()
     {
-        //
+        $form = \FormBuilder::create(PlaceForm::class,[
+            'url' => route('admin.places.store'),
+            'method' => 'POST'
+        ]);
+
+        return view('admin.places.create', compact('form'));
     }
 
     /**
@@ -35,7 +44,23 @@ class PlacesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /** @var Form $form */
+        $form = \FormBuilder::create(PlaceForm::class);
+
+        if(!$form->isValid()){
+            return redirect()
+                ->back()
+                ->withErrors($form->getErrors())
+                ->withInput();
+        }
+
+        $data = $form->getFieldValues();
+
+        Place::create($data);
+
+        $request->session()->flash('success', 'Ponto credenciado cadastrado com sucesso!');
+
+        return redirect()->route('admin.places.index');
     }
 
     /**
@@ -44,9 +69,9 @@ class PlacesController extends Controller
      * @param  \App\Places  $places
      * @return \Illuminate\Http\Response
      */
-    public function show(Places $places)
+    public function show(Place $place)
     {
-        //
+        return view ('admin.places.show', compact('place'));
     }
 
     /**
@@ -55,9 +80,15 @@ class PlacesController extends Controller
      * @param  \App\Places  $places
      * @return \Illuminate\Http\Response
      */
-    public function edit(Places $places)
+    public function edit(Place $place)
     {
-        //
+        $form = \FormBuilder::create(PlaceForm::class,[
+            'url' => route('admin.places.update', ['place' => $place->id]),
+            'method' => 'PUT',
+            'model' => $place
+        ]);
+
+        return view('admin.places.edit', compact(['form', 'place']));
     }
 
     /**
@@ -67,9 +98,27 @@ class PlacesController extends Controller
      * @param  \App\Places  $places
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Places $places)
+    public function update(Request $request, Place $place)
     {
-        //
+        /** @var Form $form */
+        $form = \FormBuilder::create(PlaceForm::class, [
+            'data' => ['id' => $place->id]
+        ]);
+
+        if(!$form->isValid()){
+            return redirect()
+                ->back()
+                ->withErrors($form->getErrors())
+                ->withInput();
+        }
+
+        $data = $form->getFieldValues();
+
+        $place->update($data);
+
+        $request->session()->flash('success', 'Ponto credenciado atualizado com sucesso!');
+
+        return redirect()->route('admin.places.index');
     }
 
     /**
@@ -78,8 +127,10 @@ class PlacesController extends Controller
      * @param  \App\Places  $places
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Places $places)
+    public function destroy(Request $request, Place $place)
     {
-        //
+        $place->delete();
+        $request->session()->flash('success', 'Ponto credenciado excluído com sucesso!');
+        return redirect()->route('admin.places.index');
     }
 }

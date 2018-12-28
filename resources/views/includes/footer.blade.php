@@ -1,29 +1,15 @@
 <div id="contato" class="container">
     <div class="row">
-        <div class="col-6">
+        <div class="col-5">
             <div class="titulo">Sobre a <span>SAPAB de Prêmios</span></div>
             <div class="texto">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue leo ipsum,
-                a interdum nunc rhoncus vel. Cras elit risus, posuere a turpis in, pulvinar eleifend urna.
-                Suspendisse mauris orci, placerat nec tortor vitae, sollicitudin convallis nunc.
-                    Integer sed felis felis. Aliquam hendrerit.</p>
+                <p>Este sorteio de prêmios é uma iniciativa para que nossa entidade não feche suas portas e pare de acolher e atender famílias que necessitam de ajuda na prevenção e no tratamento do HIV. Precisamos da sua ajuda para não deixar que este coração pare de bater.</p>
             </div>
         </div>
-        <div class="col-4">
-            <div class="titulo">Entre em contato</div>
+        <div class="col-5">
+            <div class="titulo">Conheça a <span>Legislação</span></div>
             <div class="texto">
-                <div class="linha">
-                    <i class="fa fa-envelope"></i>
-                    <a href="mailto:contato@sapabdepremios.com.br">contato@sapabdepremios.com.br</a>
-                </div>
-                <div class="linha">
-                    <i class="fa fa-phone"></i>
-                    <a href="tel:+551432262002">(14) 3226-2002</a>
-                </div>
-                <div class="linha">
-                    <i class="fa fa-map-marker-alt"></i>
-                    <a href="#">Rua Inconfidência, 2-27, Centro - Bauru - SP</a>
-                </div>
+                <p>Realização dos sorteios pela Associação de Apoio a Pessoa com Aids de Bauru – SAPAB, CNPJ 66.490.111/0001-31, legalmente amparado pela Lei Federal nº 13.204 de 14 de Dezembro de 2015, artigos 84 e 84B III que altera a lei 13.019 de 31 de Julho de 2014.</p>
             </div>
         </div>
         <div class="col text-center">

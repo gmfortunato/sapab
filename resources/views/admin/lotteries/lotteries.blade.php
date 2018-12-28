@@ -9,7 +9,7 @@
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>Gerenciamento de Dúvidas Frequentes</h3>
+                        <h3>Gerenciamento de Sorteios</h3>
                     </div>
                     <div class="title_right">
                         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
@@ -32,9 +32,9 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Listagem de Dúvidas Frequentes</h2>
+                                <h2>Listagem de Sorteios</h2>
                                 <ul class="nav navbar-right">
-                                    <a href="{{ url('admin/faqs/create') }}" class="btn btn-success">Cadastrar</a>
+                                    <a href="{{ url('admin/lotteries/create') }}" class="btn btn-success">Cadastrar</a>
                                 </ul>
                                 <div class="clearfix"></div>
                             </div>
@@ -47,7 +47,7 @@
                                 </div>
 
                                 <div class="paginationBlock">
-                                    {!! $faqs->links() !!}
+                                    {!! $lotteries->links() !!}
                                 </div>
 
                                 <div class="table-responsive">
@@ -55,17 +55,27 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th class="col-">Título</th>
+                                                <th class="text-center">Data</th>
+                                                <th class="text-center">Horário</th>
+                                                <th class="text-center">Número do sorteio</th>
+                                                <th class="text-center">Premiações - Kina</th>
+                                                <th class="text-center">Premiações - Keno</th>
+                                                <th class="text-center">Valor do Cupom</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($faqs as $faq)
-                                            <tr style="cursor: pointer;" onclick="javascript:location.href='{{ route('admin.faqs.show', ['faq' => $faq->id])}}'">
-                                                <td>{{ $faq->id }}</td>
-                                                <td>{{ $faq->title }}</td>
+                                            @foreach($lotteries as $lottery)
+                                            <tr style="cursor: pointer;" onclick="javascript:location.href='{{ route('admin.lotteries.show', ['faq' => $lottery->id])}}'">
+                                                <td>{{ $lottery->id }}</td>
+                                                <td class="text-center">{{ date('d/m/Y', strtotime($lottery->date)) }}</td>
+                                                <td class="text-center">{{ date('H:i', strtotime($lottery->time)) }}</td>
+                                                <td class="text-center">{{ $lottery->number }}</td>
+                                                <td class="text-center">R$ {{ number_format($lottery->kina, 2, ',', '.') }}</td>
+                                                <td class="text-center">R$ {{ number_format($lottery->keno, 2, ',', '.') }}</td>
+                                                <td class="text-center">R$ {{ number_format($lottery->price, 2, ',', '.') }}</td>
                                                 <td class="text-center">
-                                                    <a class="btn btn-primary" href="{{ route('admin.faqs.edit', ['faq' => $faq->id]) }}">Editar</a>
+                                                    <a class="btn btn-primary" href="{{ route('admin.lotteries.edit', ['faq' => $lottery->id]) }}">Editar</a>
                                                     <a class="btn btn-danger">Excluir</a>
                                                 </td>
                                             </tr>
@@ -75,7 +85,7 @@
                                 </div>
 
                                 <div class="paginationBlock">
-                                    {!! $faqs->links() !!}
+                                    {!! $lotteries->links() !!}
                                 </div>
                             </div>
                         </div>

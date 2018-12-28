@@ -8,19 +8,19 @@
         <div class="navbar-collapse offcanvas-collapse" id="main_navbar">
             <ul class="navbar-nav ml-auto navbar-left">
                 <li class="nav-item">
-                    <a data-scroll class="nav-link" href="#resultados-de-sorteios">Resultados</a>
+                    <a data-scroll class="nav-link" href="{{ url('/#resultados-de-sorteios') }}">Resultados</a>
                 </li>
                 <li class="nav-item">
-                    <a data-scroll class="nav-link" href="#proximos-sorteios">Próximos Sorteios</a>
+                    <a data-scroll class="nav-link" href="{{ url('/#proximos-sorteios') }}">Próximos Sorteios</a>
                 </li>
                 <li class="nav-item">
-                    <a data-scroll class="nav-link" href="#duvidas-frequentes">Dúvidas</a>
+                    <a data-scroll class="nav-link" href="{{ url('/#duvidas-frequentes') }}">Dúvidas</a>
                 </li>
                 <li class="nav-item">
-                    <a data-scroll class="nav-link" href="#pontos-credenciados">Pontos Credenciados</a>
+                    <a data-scroll class="nav-link" href="{{ url('/#pontos-credenciados') }}">Pontos Credenciados</a>
                 </li>
                 <li class="nav-item">
-                    <a data-scroll class="nav-link" href="#contato">Contato</a>
+                    <a data-scroll class="nav-link" href="{{ url('/#contato') }}">Contato</a>
                 </li>
             </ul>
         </div>

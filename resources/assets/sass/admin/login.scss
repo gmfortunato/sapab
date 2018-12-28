@@ -1,3 +1,101 @@
-footer {
-  margin: 0px;
+body.login{
+  -webkit-transition: ease all 0.3s; /* Safari */
+  transition: ease all 0.3s;
+  background-color: #2A3F54;
+  color: #2A3F54;
+
+  .login_wrapper {
+    max-width: 450px;
+
+    .login_form {
+      padding: 20px 40px 20px 40px;
+      background: #FFFFFF;
+      box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.9) inset;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+
+      .logo{
+        text-align: center;
+      }
+
+      .login_content{
+        form {
+          margin: 0px;
+
+          h1{
+
+            &:after, &:before {
+              background: #2A3F54;
+            }
+
+          }
+
+          a{
+            color: #2A3F54;
+
+            &:hover{
+              color: #2A3F54;
+            }
+          }
+
+          .change_link{
+            line-height: 38px;
+            display: inline-block;
+            margin: 0px;
+          }
+
+          .form-group{
+            text-align: left;
+
+            label{
+              font-size: 14px;
+            }
+
+            .form-control{
+              padding: 10px 12px;
+              height: auto;
+              border-color: #2A3F54;
+
+              &:placeholder{
+                color: #2A3F54;
+              }
+            }
+
+            .btn {
+              background: rgba(0, 48, 100, 1);
+              border-radius: 3px;
+              font-weight: bold;
+              line-height: normal;
+              font-size: 16px;
+              text-align: center;
+              color: #FFFFFF;
+              width: auto;
+              padding: 10px 30px 10px 30px;
+              border: none;
+              -webkit-transition: ease all 0.3s; /* Safari */
+              transition: ease all 0.3s;
+
+              &:hover {
+                background: rgba(0, 48, 100, 0.9);
+                padding: 10px 30px 10px 30px;
+                text-decoration: none;
+              }
+
+            }
+
+          }
+
+          .copyright {
+            margin: 30px 0px 0px 0px;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
 }

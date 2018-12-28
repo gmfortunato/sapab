@@ -18,8 +18,9 @@
 <div>
     <div class="login_wrapper">
         <div class="animate form login_form">
+            <div class="logo"><img src="{{asset('images/layout/logo.png')}}"/></div>
             <section class="login_content">
-				{!! BootForm::open(['url' => url('/login'), 'method' => 'post']) !!}
+				{!! BootForm::open(['url' => url('admin/login'), 'method' => 'post']) !!}
                     
 				<h1>Área Restrita</h1>
 			
@@ -28,8 +29,8 @@
 				{!! BootForm::password('password', 'Senha', ['placeholder' => 'Digite a sua senha']) !!}
 				
 				<div>
-					{!! BootForm::submit('Log in', ['class' => 'btn btn-default submit']) !!}
-					<a class="reset_pass" href="{{  url('/password/reset') }}">Esqueceu sua senha?</a>
+					{!! BootForm::submit('Acessar', ['class' => 'btn btn-default submit']) !!}
+					<a class="reset_pass" href="{{  url('admin/password/reset') }}">Esqueceu sua senha?</a>
 				</div>
                     
 				<div class="clearfix"></div>

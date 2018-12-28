@@ -9,7 +9,7 @@
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>Gerenciamento de Pontos Credenciados</h3>
+                        <h3>Gerenciamento de Dúvidas Frequentes</h3>
                     </div>
                     <div class="title_right">
                         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
@@ -32,9 +32,9 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Listagem de Pontos Credenciados</h2>
+                                <h2>Listagem de Dúvidas Frequentes</h2>
                                 <ul class="nav navbar-right">
-                                    <a href="{{ url('admin/places/create') }}" class="btn btn-success">Cadastrar</a>
+                                    <a href="{{ url('admin/faqs/create') }}" class="btn btn-success">Cadastrar</a>
                                 </ul>
                                 <div class="clearfix"></div>
                             </div>
@@ -47,7 +47,7 @@
                                 </div>
 
                                 <div class="paginationBlock">
-                                    {!! $places->links() !!}
+                                    {!! $faqs->links() !!}
                                 </div>
 
                                 <div class="table-responsive">
@@ -55,21 +55,17 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th class="col-">Ponto</th>
-                                                <th>Endereço</th>
-                                                <th>Localização</th>
+                                                <th class="col-">Título</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($places as $place)
-                                            <tr style="cursor: pointer;" onclick="javascript:location.href='{{ route('admin.places.show', ['user' => $place->id])}}'">
-                                                <td>{{ $place->id }}</td>
-                                                <td>{{ $place->title }}</td>
-                                                <td>{{ $place->address }}</td>
-                                                <td>{{ $place->city }} - {{ $place->state }}</td>
+                                            @foreach($faqs as $faq)
+                                            <tr style="cursor: pointer;" onclick="javascript:location.href='{{ route('admin.faqs.show', ['faq' => $faq->id])}}'">
+                                                <td>{{ $faq->id }}</td>
+                                                <td>{{ $faq->title }}</td>
                                                 <td class="text-center">
-                                                    <a class="btn btn-primary" href="{{ route('admin.places.edit', ['user' => $place->id]) }}">Editar</a>
+                                                    <a class="btn btn-primary" href="{{ route('admin.faqs.edit', ['faq' => $faq->id]) }}">Editar</a>
                                                     <a class="btn btn-danger">Excluir</a>
                                                 </td>
                                             </tr>
@@ -79,7 +75,7 @@
                                 </div>
 
                                 <div class="paginationBlock">
-                                    {!! $places->links() !!}
+                                    {!! $faqs->links() !!}
                                 </div>
                             </div>
                         </div>

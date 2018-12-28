@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Lottery;
+use App\Models\Lottery;
 use Illuminate\Http\Request;
+use App\Forms\LotteryForm;
+use App\Http\Controllers\Controller;
+use Kris\LaravelFormBuilder\Form;
 
-class LotteryController extends Controller
+class LotteriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +17,8 @@ class LotteryController extends Controller
      */
     public function index()
     {
-        //
+        $lotteries = Lottery::paginate(10);
+        return view('admin.lotteries.lotteries', compact('lotteries'));
     }
 
     /**
@@ -24,7 +28,12 @@ class LotteryController extends Controller
      */
     public function create()
     {
-        //
+        $form = \FormBuilder::create(LotteryForm::class,[
+            'url' => route('admin.lotteries.store'),
+            'method' => 'POST'
+        ]);
+
+        return view('admin.lotteries.create', compact('form'));
     }
 
     /**
