@@ -15,15 +15,16 @@
                 <ul class="nav side-menu">
                     <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-home"></i> Dashboard </a></li>
                     <li><a href="{{ url('admin/users') }}"><i class="fa fa-users"></i> Usuários </a></li>
-                    <li><a href="{{ url('admin/lotteries') }}"><i class="fa fa-repeat"></i> Sorteios <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-repeat"></i> Sorteios <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{ url('admin/lotteries/forthcoming') }}">Próximos Sorteios</a></li>
+                            <li><a href="{{ url('admin/lotteries') }}">Listagem de Sorteios</a></li>
                             <li><a href="{{ url('admin/lotteries/winners') }}">Vencedores</a></li>
                             <li><a href="{{ url('admin/lotteries/results') }}">Resultados</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ url('admin/faqs') }}"><i class="fa fa-question"></i> Dúvidas Frequentes </a></li>
                     <li><a href="{{ url('admin/places') }}"><i class="fa fa-map-marker"></i> Pontos Credenciados </a></li>
+                    <li><a href="{{ url('/') }}"><i class="fa fa-undo"></i> Voltar ao Website </a></li>
                 </ul>
             </div>
         </div>

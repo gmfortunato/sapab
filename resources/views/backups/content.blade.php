@@ -69,7 +69,7 @@
                 <div class="texto">
                     @php
                         $date = \Carbon\Carbon::createFromFormat('Y-m-d', $nextLottery->date);
-                        echo strtolower($date->formatLocalized('%d de %B, %A'));
+                        echo strtolower(str_replace('/', ' de ', $date->format('d/F, l')));
                     @endphp
                 </div>
             </div>

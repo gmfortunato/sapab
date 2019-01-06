@@ -57,6 +57,10 @@
                                 <th scope="row">E-mail</th>
                                 <td>{{$user->email}}</td>
                             </tr>
+                            <tr>
+                                <th scope="row">Último acesso</th>
+                                <td>{{ date('d/m/Y', strtotime($user->last_visit)) }}</td>
+                            </tr>
                             </tbody>
                         </table
 

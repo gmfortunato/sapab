@@ -9,30 +9,42 @@ h2{
   padding: 80px 0px 50px 0px;
 }
 
-.resultados{
-  .numeros{
-    background: #FFFFFF;
-    border: 3px solid #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2), inset 4px 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 14px 0px 14px 0px;
-    margin: 15px 18px 15px 18px;
-    font-weight: bold;
-    line-height: normal;
-    font-size: 28px;
-    text-align: center;
-    color: #000000;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    width: 70px;
-    height: auto;
-    display: inline-block;
-    text-align: center;
+#resultados-de-sorteios {
+  h2{
+    padding: 80px 0px 0px 0px;
+  }
 
-    &.selecionado{
-      border: 3px solid #E5C222;
+  p.dateTime{
+    text-align: center;
+    padding: 0px 0px 50px 0px;
+    font-size: 20px;
+  }
+
+  .resultados {
+    .numeros {
+      background: #FFFFFF;
+      border: 3px solid #FFFFFF;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2), inset 4px 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 14px 0px 14px 0px;
+      margin: 15px 18px 15px 18px;
+      font-weight: bold;
+      line-height: normal;
+      font-size: 28px;
+      text-align: center;
+      color: #000000;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      width: 70px;
+      height: auto;
+      display: inline-block;
+      text-align: center;
+
+      &.selecionado {
+        border: 3px solid #E5C222;
+      }
+
     }
-
   }
 }
 
@@ -211,6 +223,8 @@ h2{
     .row{
 
       .col{
+        max-width: 380px;
+
         .ponto {
           margin-bottom: 30px;
           display: inline-block;

@@ -39,7 +39,7 @@ $factory->define(App\Models\Faq::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Models\Lottery::class, function (Faker\Generator $faker) {
     return [
-        'date' => $faker->date('Y-m-d'),
+        'date' => $faker->date('2019-01-03'),
         'time' => $faker->time('H:i'),
         'number' => $faker->numberBetween(100000, 999999),
         'kina' => $faker->numberBetween(50, 150),

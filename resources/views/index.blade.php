@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131765141-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-131765141-1');
+    </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +57,11 @@
         speed: 500,
         speedAsDuration: true,
         easing: 'easeOutQuad',
-        header: '[data-scroll-header]'
+        header: '[data-scroll-header]',
+        ignore: '[data-scroll-ignore]',
+        topOnEmptyHash: true,
+        updateURL: true,
+        popstate: true
     });
 </script>
 </body>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use Illuminate\Http\Request;
+use App\Models\Lottery;
+use App\Models\Place;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,6 +26,34 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+
+        //Atualizar último acesso do usuário logado
+        $userID = Auth::user()->id;
+        User::where('id', '=', $userID)->update(['last_visit' => date('Y-m-d')]);
+
+
+        //Dados para Dashboard
+        $today = date('Y-m-d');
+        $lastWeek = date('Y-m-d', strtotime( "$today -7 days" ));
+        $nextWeek = date('Y-m-d', strtotime( "$today +7 days" ));
+
+        $lastVisits = User::whereBetween('last_visit', [$lastWeek, $today])
+            ->orderBy('last_visit', 'DESC')
+            ->limit(5)
+            ->get();
+
+        $lotteries = Lottery::all();
+
+        $nextLotteries = Lottery::whereBetween('date', [$today, $nextWeek])
+            ->orderBy('date', 'ASC')
+            ->orderBy('time', 'ASC')
+            ->limit(5)
+            ->get();
+
+        $pastLotteries = Lottery::where('results', '!=', '')->get();
+
+        $places = Place::all();
+
+        return view('admin.dashboard', compact(['lastVisits', 'lotteries', 'nextLotteries', 'pastLotteries', 'places']));
     }
 }

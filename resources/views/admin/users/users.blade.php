@@ -70,8 +70,9 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th class="col-">Nome</th>
+                                                <th>Nome</th>
                                                 <th>E-mail</th>
+                                                <th>Último acesso</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -81,9 +82,15 @@
                                                 <td>{{ $user->id }}</td>
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->email }}</td>
+                                                <td>{{ date('d/m/Y', strtotime($user->last_visit)) }}</td>
                                                 <td class="text-center">
-                                                    <a class="btn btn-primary" href="{{ route('admin.users.edit', ['user' => $user->id]) }}">Editar</a>
-                                                    <a class="btn btn-danger">Excluir</a>
+                                                    <a class="btn btn-primary" href="{{ route('admin.users.edit', ['user' => $user->id]) }}">
+                                                        Editar
+                                                    </a>
+                                                    <a class="btn btn-danger" href="{{ route('admin.users.destroy', ['user' => $user->id]) }}"
+                                                       onclick='event.preventDefault();document.getElementById("form-delete").submit();'>
+                                                    Excluir
+                                                    </a>
                                                 </td>
                                             </tr>
                                             @endforeach

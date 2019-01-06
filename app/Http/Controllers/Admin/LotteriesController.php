@@ -44,7 +44,23 @@ class LotteriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /** @var Form $form */
+        $form = \FormBuilder::create(LotteryForm::class);
+
+        if(!$form->isValid()){
+            return redirect()
+                ->back()
+                ->withErrors($form->getErrors())
+                ->withInput();
+        }
+
+        $data = $form->getFieldValues();
+
+        Lottery::create($data);
+
+        $request->session()->flash('success', 'Sorteio cadastrado com sucesso!');
+
+        return redirect()->route('admin.lotteries.index');
     }
 
     /**
@@ -55,7 +71,7 @@ class LotteriesController extends Controller
      */
     public function show(Lottery $lottery)
     {
-        //
+        return view ('admin.lotteries.show', compact('lottery'));
     }
 
     /**
@@ -66,7 +82,13 @@ class LotteriesController extends Controller
      */
     public function edit(Lottery $lottery)
     {
-        //
+        $form = \FormBuilder::create(LotteryForm::class,[
+            'url' => route('admin.lotteries.update', ['lottery' => $lottery->id]),
+            'method' => 'PUT',
+            'model' => $lottery
+        ]);
+
+        return view('admin.lotteries.edit', compact(['form', 'lottery']));
     }
 
     /**
@@ -78,7 +100,25 @@ class LotteriesController extends Controller
      */
     public function update(Request $request, Lottery $lottery)
     {
-        //
+        /** @var Form $form */
+        $form = \FormBuilder::create(LotteryForm::class, [
+            'data' => ['id' => $lottery->id]
+        ]);
+
+        if(!$form->isValid()){
+            return redirect()
+                ->back()
+                ->withErrors($form->getErrors())
+                ->withInput();
+        }
+
+        $data = $form->getFieldValues();
+
+        $lottery->update($data);
+
+        $request->session()->flash('success', 'Sorteio atualizado com sucesso!');
+
+        return redirect()->route('admin.lotteries.index');
     }
 
     /**
@@ -89,6 +129,9 @@ class LotteriesController extends Controller
      */
     public function destroy(Lottery $lottery)
     {
-        //
+        $lottery->delete();
+        $request->session()->flash('success', 'Sorteio excluído com sucesso!');
+        return redirect()->route('admin.lotteries.index');
     }
+
 }

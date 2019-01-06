@@ -44,5 +44,6 @@
         tinymce.init({
             selector: '#description'
         });
+        document.querySelector('#description').removeAttribute('required');
     </script>
 @endsection

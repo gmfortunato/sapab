@@ -69,7 +69,7 @@
                                             <tr style="cursor: pointer;" onclick="javascript:location.href='{{ route('admin.lotteries.show', ['faq' => $lottery->id])}}'">
                                                 <td>{{ $lottery->id }}</td>
                                                 <td class="text-center">{{ date('d/m/Y', strtotime($lottery->date)) }}</td>
-                                                <td class="text-center">{{ date('H:i', strtotime($lottery->time)) }}</td>
+                                                <td class="text-center">{{ str_replace(":", "h", date('H:i', strtotime($lottery->time))) }}</td>
                                                 <td class="text-center">{{ $lottery->number }}</td>
                                                 <td class="text-center">R$ {{ number_format($lottery->kina, 2, ',', '.') }}</td>
                                                 <td class="text-center">R$ {{ number_format($lottery->keno, 2, ',', '.') }}</td>

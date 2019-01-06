@@ -19,10 +19,7 @@ class PlaceForm extends Form
             ])
             ->add('address', 'text', [
                 'label' => 'Endereço',
-                'rules' => 'required|max:255',
-                'error_messages' => [
-                    'address.required' => 'O campo endereço é obrigatório!',
-                ],
+                'rules' => 'max:255',
             ])
             ->add('city', 'text', [
                 'label' => 'Cidade',

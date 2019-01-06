@@ -28,7 +28,7 @@
                         {!!
                         form($form->add('edit','submit', [
                             'attr' => ['class' => 'btn btn-primary'],
-                            'label' => 'Editar'
+                            'label' => 'Salvar'
                         ]))
                         !!}
 
@@ -44,6 +44,7 @@
         tinymce.init({
             selector: '#description'
         });
+        document.querySelector('#description').removeAttribute('required');
     </script>
 @endsection
 

@@ -23,6 +23,15 @@ form{
       margin-bottom: 10px;
     }
 
+    .control-label{
+      width: 100%;
+    }
+
+    .choice-wrapper{
+      display: inline-block;
+      margin-right: 10px;
+    }
+
   }
 
 }
@@ -49,6 +58,10 @@ form{
 
 .paginationBlock{
   text-align: center;
+
+  .pagination{
+    margin: 0px;
+  }
 }
 
 

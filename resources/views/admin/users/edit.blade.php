@@ -28,7 +28,7 @@
                         {!!
                         form($form->add('edit','submit', [
                             'attr' => ['class' => 'btn btn-primary'],
-                            'label' => 'Editar'
+                            'label' => 'Salvar'
                         ]))
                         !!}
 

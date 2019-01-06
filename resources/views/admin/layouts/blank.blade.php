@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
     <head>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +17,7 @@
         @stack('stylesheets')
 
         <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=mycs5noymvjnr9hdsn4tpsi5x2gf0r9x9639vlwk2bw2370q"></script>
+
 
     </head>
 

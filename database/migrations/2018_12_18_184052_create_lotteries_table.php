@@ -25,6 +25,7 @@ class CreateLotteriesTable extends Migration
             $table->integer('place_keno')->unsigned();
             $table->integer('card_kina')->unsigned();
             $table->integer('card_keno')->unsigned();
+            $table->string('results');
 
             $table->foreign('place_kina')->references('id')->on('places');
             $table->foreign('place_keno')->references('id')->on('places');
