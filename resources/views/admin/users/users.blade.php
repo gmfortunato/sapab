@@ -85,28 +85,18 @@
                                                 <td>{{ date('d/m/Y', strtotime($user->last_visit)) }}</td>
                                                 <td class="text-center">
                                                     <a class="btn btn-primary" href="{{ route('admin.users.edit', ['user' => $user->id]) }}">
-                                                        Editar
+                                                        <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a class="btn btn-danger" href="{{ route('admin.users.destroy', ['user' => $user->id]) }}"
-                                                       onclick='event.preventDefault();document.getElementById("form-delete").submit();'>
-                                                    Excluir
+                                                    <a class="btn btn-danger" href="{{ "users/$user->id/delete" }}">
+                                                        <i class="fa fa-remove"></i>
                                                     </a>
                                                 </td>
                                             </tr>
+
                                             @endforeach
                                         </tbody>
                                     </table>
                                 </div>
-
-                                @php
-                                    $formDelete = FormBuilder::plain([
-                                        'id' => 'form-delete',
-                                        'url' => route('admin.users.destroy', ['user' => $user->id]),
-                                        'method' => 'DELETE',
-                                        'style' => 'display: none'
-                                    ])
-                                @endphp
-                                {!! form($formDelete) !!}
 
                                 <div class="paginationBlock">
                                     {!! $users->links() !!}

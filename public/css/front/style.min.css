@@ -86,6 +86,48 @@ h2 {
   padding: 0px 0px 50px 0px;
   font-size: 20px; }
 
+#resultados-de-sorteios .pesquisar {
+  text-align: center; }
+  #resultados-de-sorteios .pesquisar .form-pesquisar {
+    margin: 50px auto 20px auto;
+    max-width: 770px;
+    width: 100%; }
+    #resultados-de-sorteios .pesquisar .form-pesquisar .campo-pesquisar {
+      display: inline-block;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      box-sizing: border-box;
+      border-radius: 3px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      width: 600px;
+      text-align: center;
+      position: relative; }
+      #resultados-de-sorteios .pesquisar .form-pesquisar .campo-pesquisar i {
+        color: #000000;
+        opacity: 0.25;
+        font-weight: bold;
+        display: inline-block;
+        padding: .7rem;
+        position: absolute;
+        top: 0px;
+        left: 0px; }
+      #resultados-de-sorteios .pesquisar .form-pesquisar .campo-pesquisar input {
+        display: inline-block;
+        border: none;
+        padding: .375rem .75rem .375rem 2.5rem;
+        width: 100%;
+        color: #000000;
+        opacity: 0.25; }
+    #resultados-de-sorteios .pesquisar .form-pesquisar .btnPesquisar {
+      display: inline-block;
+      font-size: 16px;
+      color: #FFFFFF;
+      background: #ED1C24;
+      border-radius: 3px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      vertical-align: top;
+      width: 150px;
+      margin-left: 15px; }
+
 #resultados-de-sorteios .resultados .numeros {
   background: #FFFFFF;
   border: 3px solid #FFFFFF;

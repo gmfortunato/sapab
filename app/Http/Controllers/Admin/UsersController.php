@@ -106,4 +106,23 @@ class UsersController extends Controller
             return redirect()->route('admin.users.index');
         }
     }
+
+    public function delete(Request $request, $id){
+        $user = User::findOrFail($id);
+
+        if($user->id == 1) {
+            $request->session()->flash('error', 'Desculpe! O usuário principal não pode ser excluído.');
+            return redirect()->route('admin.users.index');
+
+        }elseif ($user->id != Auth::user()->id) {
+            $user->delete();
+            $request->session()->flash('success', 'Usuário excluído com sucesso!');
+            return redirect()->route('admin.users.index');
+
+        } else {
+            $request->session()->flash('error', 'Desculpe! Este usuário não pode ser excluído.');
+            return redirect()->route('admin.users.index');
+        }
+
+    }
 }

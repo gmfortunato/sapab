@@ -133,4 +133,13 @@ class FaqsController extends Controller
         $request->session()->flash('success', 'Dúvida frequente excluída com sucesso!');
         return redirect()->route('admin.faqs.index');
     }
+
+    public function delete(Request $request, $id){
+        $faq = Faq::findOrFail($id);
+
+        $faq->delete();
+        $request->session()->flash('success', 'Dúvida frequente excluída com sucesso!');
+        return redirect()->route('admin.faqs.index');
+
+    }
 }

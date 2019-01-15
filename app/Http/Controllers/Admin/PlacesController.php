@@ -133,4 +133,13 @@ class PlacesController extends Controller
         $request->session()->flash('success', 'Ponto credenciado excluído com sucesso!');
         return redirect()->route('admin.places.index');
     }
+
+    public function delete(Request $request, $id){
+        $place = Place::findOrFail($id);
+
+        $place->delete();
+        $request->session()->flash('success', 'Ponto credenciado excluído com sucesso!');
+        return redirect()->route('admin.places.index');
+
+    }
 }

@@ -9,7 +9,7 @@
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>Gerenciamento de Sorteios</h3>
+                        <h3>Resultados de Sorteios</h3>
                     </div>
                     <div class="title_right">
                         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
@@ -32,10 +32,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Listagem de Sorteios</h2>
-                                <ul class="nav navbar-right">
-                                    <a href="{{ url('admin/lotteries/create') }}" class="btn btn-success">Cadastrar</a>
-                                </ul>
+                                <h2>Listagem de Resultados</h2>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
@@ -47,7 +44,7 @@
                                 </div>
 
                                 <div class="paginationBlock">
-                                    {!! $lotteries->links() !!}
+
                                 </div>
 
                                 <div class="table-responsive">
@@ -58,9 +55,7 @@
                                                 <th class="text-center">Data</th>
                                                 <th class="text-center">Horário</th>
                                                 <th class="text-center">Número do sorteio</th>
-                                                <th class="text-center">Premiações - Kina</th>
-                                                <th class="text-center">Premiações - Keno</th>
-                                                <th class="text-center">Valor do Cupom</th>
+                                                <th class="text-center">Números Sorteados</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -71,9 +66,7 @@
                                                 <td class="text-center">{{ date('d/m/Y', strtotime($lottery->date)) }}</td>
                                                 <td class="text-center">{{ str_replace(":", "h", date('H:i', strtotime($lottery->time))) }}</td>
                                                 <td class="text-center">{{ $lottery->number }}</td>
-                                                <td class="text-center">R$ {{ number_format($lottery->kina, 2, ',', '.') }}</td>
-                                                <td class="text-center">R$ {{ number_format($lottery->keno, 2, ',', '.') }}</td>
-                                                <td class="text-center">R$ {{ number_format($lottery->price, 2, ',', '.') }}</td>
+                                                <td class="text-center">{{ $lottery->results }}</td>
                                                 <td class="text-center">
                                                     <a class="btn btn-primary" href="{{ route('admin.lotteries.edit', ['$lottery' => $lottery->id]) }}">
                                                         <i class="fa fa-edit"></i>
@@ -89,7 +82,7 @@
                                 </div>
 
                                 <div class="paginationBlock">
-                                    {!! $lotteries->links() !!}
+
                                 </div>
                             </div>
                         </div>

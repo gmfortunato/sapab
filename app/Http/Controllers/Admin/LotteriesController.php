@@ -61,6 +61,7 @@ class LotteriesController extends Controller
         $request->session()->flash('success', 'Sorteio cadastrado com sucesso!');
 
         return redirect()->route('admin.lotteries.index');
+
     }
 
     /**
@@ -134,4 +135,35 @@ class LotteriesController extends Controller
         return redirect()->route('admin.lotteries.index');
     }
 
+    public function delete(Request $request, $id){
+        $lottery = Lottery::findOrFail($id);
+
+        $lottery->delete();
+        $request->session()->flash('success', 'Sorteio excluído com sucesso!');
+        return redirect()->route('admin.lotteries.index');
+
+    }
+
+    public function winners()
+    {
+        $lotteries = Lottery::where([
+            ['card_kina', '!=', ''],
+            ['card_keno', '!=', ''],
+            ])
+            ->orderBy('date')
+            ->orderBy('time')
+            ->get();
+
+        return view('admin.lotteries.winners', compact('lotteries'));
+    }
+
+    public function results()
+    {
+        $lotteries = Lottery::where('results', '!=', '')
+            ->orderBy('date')
+            ->orderBy('time')
+            ->get();
+
+        return view('admin.lotteries.results', compact('lotteries'));
+    }
 }

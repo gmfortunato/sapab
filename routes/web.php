@@ -11,7 +11,8 @@
     return view('index');
 });*/
 
-Route::get('/', 'FrontController@front');
+Route::get('/', 'FrontController@front')-> middleware('updateVisits');
+Route::any('/pesquisar', 'FrontController@pesquisar');
 
 Route::get('/login', function(){
     if(!Auth::user()) {
@@ -50,38 +51,21 @@ Route::prefix('admin')->group(function(){
     ], function () {
 
         Route::resource('users', 'UsersController');
+        Route::get('users/{id}/delete', 'UsersController@delete');
 
-    });
-
-    //EXTRA ROUTES
-    Route::group([
-        'namespace' => 'Admin\\',
-        'as' => 'admin.',
-        'middleware' => 'auth'
-    ], function () {
 
         Route::resource('places', 'PlacesController');
-
-    });
-
-    Route::group([
-        'namespace' => 'Admin\\',
-        'as' => 'admin.',
-        'middleware' => 'auth'
-    ], function () {
+        Route::get('places/{id}/delete', 'PlacesController@delete');
 
         Route::resource('faqs', 'FaqsController');
+        Route::get('faqs/{id}/delete', 'FaqsController@delete');
 
-    });
-
-    Route::group([
-        'namespace' => 'Admin\\',
-        'as' => 'admin.',
-        'middleware' => 'auth'
-    ], function () {
-
+        Route::get('lotteries/winners', 'LotteriesController@winners');
+        Route::get('lotteries/results', 'LotteriesController@results');
         Route::resource('lotteries', 'LotteriesController');
+        Route::get('lotteries/{id}/delete', 'LotteriesController@delete');
 
     });
+
 });
 

@@ -17,6 +17,7 @@ class CreateVisitorsTable extends Migration
             $table->increments('id');
             $table->date('date');
             $table->integer('total_visits')->unsigned();
+            $table->timestamps();
         });
     }
 

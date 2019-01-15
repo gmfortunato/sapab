@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top" data-scroll-header>
     <div class="container">
-        <a class="navbar-brand mr-auto mr-lg-0" href="#"><img src="{{ asset('images/layout/sapab-logo.png') }}" alt="SAPAB de Prêmios"/></a>
+        <a class="navbar-brand mr-auto mr-lg-0" href="/"><img src="{{ asset('images/layout/sapab-logo.png') }}" alt="SAPAB de Prêmios"/></a>
         <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
             <span class="navbar-toggler-icon">Menu <i class="fa fa-bars"></i></span>
         </button>

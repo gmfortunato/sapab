@@ -1,12 +1,22 @@
 @foreach($lastLotteries as $lastLottery)
 <section id="resultados-de-sorteios">
     <div class="container">
+        <div class="pesquisar">
+            <h2>Pesquisa de Resultados</h2>
+            <div class="form-pesquisar">
+                <form method="get" action="/pesquisar">
+                    <div class="campo-pesquisar">
+                        <i class="fa fa-search"></i>
+                        <input type="text" placeholder="Digite o número do sorteio" name="number" value="">
+                    </div>
+                    <button type="submit" class="btn btnPesquisar">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
         <h2>Últimos Resultados - Sorteio nº {{ $lastLottery->number }}</h2>
         <p class="dateTime">{{ date('d/m/Y', strtotime($lastLottery->date)) }} às {{ str_replace(":", "h", date('H:i', strtotime($lastLottery->time))) }}</p>
-
-        <div class="pesquisar">
-
-        </div>
 
         <div class="resultados">
             @php
@@ -69,7 +79,7 @@
                 <div class="texto">
                     @php
                         $date = \Carbon\Carbon::createFromFormat('Y-m-d', $nextLottery->date);
-                        echo strtolower($date->formatLocalized('%d de %B, %A'));
+                        echo utf8_encode(strtolower($date->formatLocalized('%d de %B, %A')));
                     @endphp
                 </div>
             </div>

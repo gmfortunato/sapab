@@ -2,6 +2,7 @@
 
 namespace App\Forms;
 
+use App\Models\Lottery;
 use App\Models\Place;
 use Kris\LaravelFormBuilder\Form;
 
@@ -9,6 +10,7 @@ class LotteryForm extends Form
 {
 
     private function getResultNumbers(){
+
         $resultNumbers = [];
 
         for($n = 1; $n <= 90; $n++){

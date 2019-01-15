@@ -65,8 +65,12 @@
                                                 <td>{{ $faq->id }}</td>
                                                 <td>{{ $faq->title }}</td>
                                                 <td class="text-center">
-                                                    <a class="btn btn-primary" href="{{ route('admin.faqs.edit', ['faq' => $faq->id]) }}">Editar</a>
-                                                    <a class="btn btn-danger">Excluir</a>
+                                                    <a class="btn btn-primary" href="{{ route('admin.faqs.edit', ['faq' => $faq->id]) }}">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                    <a class="btn btn-danger" href="{{ "faqs/$faq->id/delete" }}">
+                                                        <i class="fa fa-remove"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
                                             @endforeach

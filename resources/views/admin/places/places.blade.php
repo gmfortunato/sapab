@@ -69,8 +69,12 @@
                                                 <td>{{ $place->address }}</td>
                                                 <td>{{ $place->city }} - {{ $place->state }}</td>
                                                 <td class="text-center">
-                                                    <a class="btn btn-primary" href="{{ route('admin.places.edit', ['place' => $place->id]) }}">Editar</a>
-                                                    <a class="btn btn-danger">Excluir</a>
+                                                    <a class="btn btn-primary" href="{{ route('admin.places.edit', ['place' => $place->id]) }}">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                    <a class="btn btn-danger" href="{{ "places/$place->id/delete" }}">
+                                                        <i class="fa fa-remove"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
                                             @endforeach
