@@ -73,7 +73,7 @@
                                                 <td class="text-center">{{ $lottery->number }}</td>
                                                 <td class="text-center">R$ {{ number_format($lottery->kina, 2, ',', '.') }}</td>
                                                 <td class="text-center">R$ {{ number_format($lottery->keno, 2, ',', '.') }}</td>
-                                                <td class="text-center">R$ {{ number_format($lottery->price, 2, ',', '.') }}</td>
+                                                <td class="text-center">R$ {{ number_format($lottery->price, 2, ',', '.')  }}</td>
                                                 <td class="text-center">
                                                     <a class="btn btn-primary" href="{{ route('admin.lotteries.edit', ['$lottery' => $lottery->id]) }}">
                                                         <i class="fa fa-edit"></i>

@@ -23,6 +23,30 @@ h2{
   .pesquisar{
     text-align: center;
 
+    p{
+      line-height: normal;
+      font-size: 18px;
+    }
+
+    a.btn{
+      background: #ed1c24;
+      border-radius: 3px;
+      font-weight: bold;
+      line-height: normal;
+      font-size: 16px;
+      text-align: center;
+      color: #FFFFFF;
+      width: auto;
+      padding: 15px 50px 15px 50px;
+      transition: ease all 0.3s;
+
+      &:hover {
+        background: rgba(205, 27, 33, 1);
+        padding: 15px 55px 15px 55px;
+        text-decoration: none;
+      }
+    }
+
     .form-pesquisar{
       margin: 50px auto 20px auto;
       max-width: 770px;
@@ -34,7 +58,8 @@ h2{
         box-sizing: border-box;
         border-radius: 3px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        width: 600px;
+        max-width: 600px;
+        width: 75%;
         text-align: center;
         position: relative;
 
@@ -70,6 +95,13 @@ h2{
         vertical-align: top;
         width: 150px;
         margin-left: 15px;
+        transition: ease all 0.3s;
+
+        &:hover {
+          background: rgba(205, 27, 33, 1);
+          text-decoration: none;
+        }
+
       }
 
     }
@@ -405,6 +437,16 @@ h2{
   }
 }
 
+@media screen and (max-width: 767px){
+  #resultados-de-sorteios .pesquisar .form-pesquisar .campo-pesquisar{
+    width: 100%;
+  }
+
+  #resultados-de-sorteios .pesquisar .form-pesquisar .btnPesquisar {
+    margin: 20px 0px 0px 0px;
+  }
+}
+
 @media screen and (max-width: 600px){
   h2{
     font-size: 34px;
@@ -491,8 +533,8 @@ h2{
     font-size: 30px;
   }
 
-  .resultados .numeros {
-    margin: 10px;
+  #resultados-de-sorteios .resultados .numeros{
+    margin: 12px;
   }
 }
 

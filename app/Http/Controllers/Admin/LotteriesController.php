@@ -55,6 +55,9 @@ class LotteriesController extends Controller
         }
 
         $data = $form->getFieldValues();
+        $data['kina'] = str_replace(',', '.', $data['kina']);
+        $data['keno'] = str_replace(',', '.', $data['keno']);
+        $data['price'] = str_replace(',', '.', $data['price']);
 
         Lottery::create($data);
 
@@ -114,6 +117,9 @@ class LotteriesController extends Controller
         }
 
         $data = $form->getFieldValues();
+        $data['kina'] = str_replace(',', '.', $data['kina']);
+        $data['keno'] = str_replace(',', '.', $data['keno']);
+        $data['price'] = str_replace(',', '.', $data['price']);
 
         $lottery->update($data);
 

@@ -7,8 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lottery extends Model implements TableInterface
 {
+    protected $casts = [
+        'results' => 'array'
+    ];
+
     protected $fillable = [
-        'date', 'time', 'number', 'kina', 'keno', 'price', 'place_kina', 'place_keno', 'card_kina', 'card_keno',
+        'date', 'time', 'number', 'kina', 'keno', 'price', 'place_kina', 'place_keno', 'card_kina', 'card_keno', 'results'
     ];
 
     /**
@@ -18,7 +22,7 @@ class Lottery extends Model implements TableInterface
      */
     public function getTableHeaders()
     {
-        return ['ID', 'Data', 'Horário', 'Número do Sorteio', 'Premiações - Kina', 'Premiações - Keno'];
+        return ['ID', 'Data', 'Horário', 'Número do Sorteio', 'Premiações - Kina', 'Premiações - Keno', 'Resultados'];
     }
 
     /**
@@ -45,4 +49,13 @@ class Lottery extends Model implements TableInterface
                 return 'R$ ' . number_format($this->keno, 2, ',', '.');
         }
     }
+
+    public function placeKina(){
+        return $this->belongsTo(Place::class,'place_kina');
+    }
+
+    public function placeKeno(){
+        return $this->belongsTo(Place::class,'place_keno');
+    }
+
 }

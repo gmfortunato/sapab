@@ -35,8 +35,6 @@
 
 @include('includes.header')
 
-@include('includes.banner')
-
 <main>
     @include('includes.search')
 </main>

@@ -14,8 +14,10 @@
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a href="{{ url('admin/myAccount') }}">Minha conta</a></li>
-                        <li><a href="{{ url('admin/configurations') }}">Configurações</a></li>
+                        @php
+                            $userID = Auth::user()->id;
+                        @endphp
+                        <li><a href="{{ url("admin/users/{$userID}")}}">Minha conta</a></li>
                         <li><a href="{{ url('admin/logout') }}"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
                     </ul>
                 </li>

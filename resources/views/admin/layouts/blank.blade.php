@@ -42,6 +42,10 @@
         <script src="{{ asset("js/bootstrap.min.js") }}"></script>
         <!-- Custom Theme Scripts -->
         <script src="{{ asset("js/gentelella.min.js") }}"></script>
+        <!-- Masks -->
+        <script src="{{ asset("js/jquery.mask.min.js") }}"></script>
+        <!-- Custom JS -->
+        <script src="{{ asset("js/admin/scripts.min.js") }}"></script>
 
         @stack('scripts')
 

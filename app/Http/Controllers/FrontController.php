@@ -31,7 +31,7 @@ class FrontController extends Controller
     }
 
     public function pesquisar(Request $request){
-        $number = $request->get('number', '');
+        $number = $request->get('sorteio', '');
 
         $searchLotteries = Lottery::where('number', 'LIKE', $number)->get();
 

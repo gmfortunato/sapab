@@ -42,11 +42,18 @@ $factory->define(App\Models\Lottery::class, function (Faker\Generator $faker) {
         'date' => $faker->date('2019-01-03'),
         'time' => $faker->time('H:i'),
         'number' => $faker->numberBetween(100000, 999999),
-        'kina' => $faker->numberBetween(50, 150),
-        'keno' => $faker->numberBetween(100, 500),
+        'kina' => '150.00',
+        'keno' => '300.00',
         'price' => '2.50',
 
         //'card_kina' => $faker->numberBetween(100000, 999999),
         //'card_keno' => $faker->numberBetween(100000, 999999),
+    ];
+});
+
+$factory->define(App\Models\Visitor::class, function (Faker\Generator $faker) {
+    return [
+        'date' => $faker->date('2019-01-01'),
+        'total_visits' => $faker->numberBetween(1, 200),
     ];
 });

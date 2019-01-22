@@ -16,7 +16,7 @@
             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
                     <div class="icon"><i class="fa fa-globe"></i></div>
-                    <div class="count">XXXXX</div>
+                    <div class="count">{{ $total_visits }}</div>
                     <h3>Total de acessos</h3>
                     <p>Total de visualizações ao website</p>
                 </div>
@@ -59,6 +59,26 @@
 
         <div class="row">
 
+            <!-- GRAPHIC CONTENT CONTAINER
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Total de Acessos <small>(website)</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content2">
+                         <div id="visitschart" style="height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- END GRAPHIC CONTENT CONTAINER -->
+
             <!-- DASHBOARD CONTENT CONTAINER -->
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
@@ -94,11 +114,60 @@
 
                             @if(count($lastVisits) > 0)
                                 @foreach($lastVisits as $lastVisit)
+                                    <tr>
+                                        <th scope="row">{{ $lastVisit->name }}</th>
+                                        <td>{{ $lastVisit->email }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($lastVisit->last_visit)) }}</td>
+                                    </tr>
+                                @endforeach
+                            @endif
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <!-- END DASHBOARD CONTENT CONTAINER -->
+
+            <!-- DASHBOARD CONTENT CONTAINER -->
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Total de acessos por dia <small>(últimos 5 dias)</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <table class="table table-striped table-hover">
+                            <thead>
+                            @if(count($totalVisitors) > 0)
                                 <tr>
-                                    <th scope="row">{{ $lastVisit->name }}</th>
-                                    <td>{{ $lastVisit->email }}</td>
-                                    <td>{{ date('d/m/Y', strtotime($lastVisit->last_visit)) }}</td>
+                                    <th>Data</th>
+                                    <th style="text-align: center;">Total de acessos</th>
                                 </tr>
+                            @else
+                                <tr>
+                                    Nenhuma visita nos últimos dias.
+                                </tr>
+                            @endif
+                            </thead>
+                            <tbody>
+
+                            @if(count($totalVisitors) > 0)
+                                @foreach($totalVisitors as $totalVisitor)
+                                    <tr>
+                                        <th scope="row">{{ date('d/m/Y', strtotime($totalVisitor->date)) }}</th>
+                                        <td align="center">{{ $totalVisitor->total_visits }}</td>
+                                    </tr>
                                 @endforeach
                             @endif
 
@@ -224,4 +293,39 @@
     </div>
     <!-- /page content -->
 @endsection
+
+@push('scripts')
+
+<script>
+    $(document).ready(function(){
+        $('.money').mask('000.000.000.000.000,00', {reverse: true});
+    });
+</script>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+<script>
+    new Morris.Line({
+
+        element: 'visitschart',
+
+        data: [
+            { m: '01', a: 100, b: 90 },
+            { m: '02', a: 75,  b: 65 },
+            { m: '03', a: 50,  b: 40 },
+            { m: '04', a: 75,  b: 65 },
+            { m: '05', a: 50,  b: 40 },
+            { m: '06', a: 75,  b: 65 },
+            { m: '07', a: 100, b: 90 }
+        ],
+        xkey: 'm',
+        ykeys: ['a', 'b'],
+        labels: ['Mês Atual', 'Mês Anterior']
+    });
+</script>
+
+@endpush
 

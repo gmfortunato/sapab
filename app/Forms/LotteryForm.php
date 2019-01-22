@@ -2,12 +2,22 @@
 
 namespace App\Forms;
 
-use App\Models\Lottery;
 use App\Models\Place;
 use Kris\LaravelFormBuilder\Form;
 
 class LotteryForm extends Form
 {
+
+    private function getSelectedNumbers(){
+        $selectedNumbers = [];
+
+        if(!empty($this->getModel())) {
+            $selectedNumbers = $this->getModel()->results;
+        }
+
+        return $selectedNumbers;
+
+    }
 
     private function getResultNumbers(){
 
@@ -25,6 +35,7 @@ class LotteryForm extends Form
     }
 
     private function getPlacesOptions(){
+
         $places = Place::all();
         $placeOptions = [];
         foreach($places as $place){
@@ -34,9 +45,15 @@ class LotteryForm extends Form
     }
 
     private function getTimesOptions(){
+        //$time = $this->getModel()->time;
+
         $timeOptions = [];
         for($t = 8; $t <= 20; $t++){
-            $timeOptions[$t.":00"] = $t."h00";
+            if($t < 10) {
+                $timeOptions["0" . $t . ":00:00"] = $t . "h00";
+            }else{
+                $timeOptions[$t . ":00:00"] = $t . "h00";
+            }
         }
         return $timeOptions;
     }
@@ -60,20 +77,23 @@ class LotteryForm extends Form
             ])
             ->add('number', 'text', [
                 'label' => 'Número do sorteio',
-                'rules' => 'required',
+                'rules' => 'required|min:4|max:4',
                 'empty_value' => 'O número do sorteio é obrigatório',
             ])
             ->add('kina', 'text', [
+                'attr' => ['data-mask' => '000.000,00', 'data-mask-reverse' => 'true'],
                 'label' => 'Premiações - Kina',
                 'rules' => 'required',
                 'empty_value' => 'O valor do prêmio é obrigatório',
             ])
             ->add('keno', 'text', [
+                'attr' => ['data-mask' => '000.000,00', 'data-mask-reverse' => 'true'],
                 'label' => 'Premiações - Keno',
                 'rules' => 'required',
                 'empty_value' => 'O valor do prêmio é obrigatório',
             ])
             ->add('price', 'text', [
+                'attr' => ['data-mask' => '000.000,00', 'data-mask-reverse' => 'true'],
                 'label' => 'Valor do cupom',
                 'rules' => 'required',
                 'empty_value' => 'O valor do cupom é obrigatório',
@@ -97,6 +117,7 @@ class LotteryForm extends Form
             ->add('results', 'choice', [
                 'label' => 'Números sorteados',
                 'choices' => $this->getResultNumbers(),
+                'selected' => $this->getSelectedNumbers(),
                 'choice_options' => [
                     'wrapper' => ['class' => 'choice-wrapper'],
                     'label_attr' => ['class' => 'label-class'],

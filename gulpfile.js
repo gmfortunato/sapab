@@ -48,7 +48,7 @@ elixir(function(mix) {
 
     mix.scripts([
         'admin/*.js',
-    ], 'public/js/front/scripts.min.js');
+    ], 'public/js/admin/scripts.min.js');
 
 
     /****************/

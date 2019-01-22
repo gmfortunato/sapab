@@ -59,7 +59,13 @@
                             </tr>
                             <tr>
                                 <th scope="row">Último acesso</th>
-                                <td>{{ date('d/m/Y', strtotime($user->last_visit)) }}</td>
+                                <td>
+                                    @if($user->last_visit != '0000-00-00')
+                                        {{ date('d/m/Y', strtotime($user->last_visit)) }}
+                                    @else
+                                        <span class="red">Nunca acessou</span>
+                                    @endif
+                                </td>
                             </tr>
                             </tbody>
                         </table

@@ -1,18 +1,10 @@
-
+@if(count($searchLotteries) > 0)
 @foreach($searchLotteries as $searchLottery)
 <section id="resultados-de-sorteios">
     <div class="container">
         <div class="pesquisar">
             <h2>Pesquisa de Resultados</h2>
-            <div class="form-pesquisar">
-                <form method="get" action="/pesquisar">
-                    <div class="campo-pesquisar">
-                        <i class="fa fa-search"></i>
-                        <input type="text" placeholder="Digite o número do sorteio" name="number" value="">
-                    </div>
-                    <button type="submit" class="btn btnPesquisar">Buscar</button>
-                </form>
-            </div>
+            @include('includes.form-search')
         </div>
     </div>
     <div class="container">
@@ -21,7 +13,7 @@
 
         <div class="resultados">
             @php
-            $numbersLottery = explode(',', $searchLottery->results);
+            $numbersLottery = $searchLottery->results;
             for($n = 1; $n <= 90; $n++){
                 if(in_array($n, $numbersLottery)){
                     echo "
@@ -47,14 +39,37 @@
         <h2>Últimos vencedores do sorteio</h2>
         <div class="resultado bg-amarelo">
             <div class="titulo">Kina</div>
-            <div class="texto">{{ $searchLottery->place_kina }} - {{ $searchLottery->card_kina }} - R$ {{ number_format($searchLottery->kina, 2, ',', '.') }}</div>
+            <div class="texto">{{ $searchLottery->placeKina->title }} - {{ $searchLottery->card_kina }} - R$ {{ number_format($searchLottery->kina, 2, ',', '.') }}</div>
         </div>
 
         <div class="resultado bg-azul">
             <div class="titulo">Keno</div>
-            <div class="texto">{{ $searchLottery->place_keno }} - {{ $searchLottery->card_keno }} - R$ {{ number_format($searchLottery->keno, 2, ',', '.') }}</div>
+            <div class="texto">{{ $searchLottery->placeKeno->title }} - {{ $searchLottery->card_keno }} - R$ {{ number_format($searchLottery->keno, 2, ',', '.') }}</div>
         </div>
     </div>
 </section>
 @endforeach
+@else
 
+    <section id="resultados-de-sorteios">
+        <div class="container">
+            <div class="pesquisar">
+                <h2>Sorteio não encontrado!</h2>
+                <p>Desculpe, o número de sorteio pesquisado não existe.</p>
+                <a class="btn" href="/" role="button">Voltar ao site</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="resultados-de-sorteios">
+        <div class="container">
+            <div class="pesquisar">
+                <h2>Pesquisa de Resultados</h2>
+                @include('includes.form-search')
+            </div>
+        </div>
+    </section>
+
+    <br><br><br>
+
+@endif

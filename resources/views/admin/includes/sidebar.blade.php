@@ -15,7 +15,7 @@
                 <ul class="nav side-menu">
                     <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-home"></i> Dashboard </a></li>
                     <li><a href="{{ url('admin/users') }}"><i class="fa fa-users"></i> Usuários </a></li>
-                    <li><a><i class="fa fa-repeat"></i> Sorteios <span class="fa fa-chevron-down"></span></a>
+                    <li><a href="{{ url('admin/lotteries') }}"><i class="fa fa-repeat"></i> Sorteios <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('admin/lotteries') }}">Listagem de Sorteios</a></li>
                             <li><a href="{{ url('admin/lotteries/winners') }}">Vencedores</a></li>
@@ -30,16 +30,19 @@
         </div>
         <!-- /sidebar menu -->
 
+        @php
+            $userID = Auth::user()->id;
+        @endphp
         <!-- /menu footer buttons -->
         <div class="sidebar-footer hidden-small">
             <a data-toggle="tooltip" data-placement="top" title="Dashboard" href="{{ url('admin/dashboard') }}">
                 <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
             </a>
-            <a data-toggle="tooltip" data-placement="top" title="Minha Conta" href="{{ url('admin/myAccount') }}">
+            <a data-toggle="tooltip" data-placement="top" title="Minha Conta" href="{{ url("admin/users/{$userID}")}}">
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
             </a>
-            <a data-toggle="tooltip" data-placement="top" title="Configurações" href="{{ url('admin/configurations') }}">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            <a data-toggle="tooltip" data-placement="top" title="Voltar ao Website" href="{{ url('/') }}">
+                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
             </a>
             <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ url('admin/logout') }}">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>

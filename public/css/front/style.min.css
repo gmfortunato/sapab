@@ -88,6 +88,24 @@ h2 {
 
 #resultados-de-sorteios .pesquisar {
   text-align: center; }
+  #resultados-de-sorteios .pesquisar p {
+    line-height: normal;
+    font-size: 18px; }
+  #resultados-de-sorteios .pesquisar a.btn {
+    background: #ed1c24;
+    border-radius: 3px;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    width: auto;
+    padding: 15px 50px 15px 50px;
+    transition: ease all 0.3s; }
+    #resultados-de-sorteios .pesquisar a.btn:hover {
+      background: #cd1b21;
+      padding: 15px 55px 15px 55px;
+      text-decoration: none; }
   #resultados-de-sorteios .pesquisar .form-pesquisar {
     margin: 50px auto 20px auto;
     max-width: 770px;
@@ -98,7 +116,8 @@ h2 {
       box-sizing: border-box;
       border-radius: 3px;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      width: 600px;
+      max-width: 600px;
+      width: 75%;
       text-align: center;
       position: relative; }
       #resultados-de-sorteios .pesquisar .form-pesquisar .campo-pesquisar i {
@@ -126,7 +145,11 @@ h2 {
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       vertical-align: top;
       width: 150px;
-      margin-left: 15px; }
+      margin-left: 15px;
+      transition: ease all 0.3s; }
+      #resultados-de-sorteios .pesquisar .form-pesquisar .btnPesquisar:hover {
+        background: #cd1b21;
+        text-decoration: none; }
 
 #resultados-de-sorteios .resultados .numeros {
   background: #FFFFFF;
@@ -338,6 +361,12 @@ h2 {
   #contato .row .col {
     margin-top: 10px; } }
 
+@media screen and (max-width: 767px) {
+  #resultados-de-sorteios .pesquisar .form-pesquisar .campo-pesquisar {
+    width: 100%; }
+  #resultados-de-sorteios .pesquisar .form-pesquisar .btnPesquisar {
+    margin: 20px 0px 0px 0px; } }
+
 @media screen and (max-width: 600px) {
   h2 {
     font-size: 34px; }
@@ -389,8 +418,8 @@ h2 {
 @media screen and (max-width: 320px) {
   h2 {
     font-size: 30px; }
-  .resultados .numeros {
-    margin: 10px; } }
+  #resultados-de-sorteios .resultados .numeros {
+    margin: 12px; } }
 
 body {
   font-family: 'Oxygen', sans-serif;

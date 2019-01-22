@@ -66,7 +66,7 @@
                                                 <td class="text-center">{{ date('d/m/Y', strtotime($lottery->date)) }}</td>
                                                 <td class="text-center">{{ str_replace(":", "h", date('H:i', strtotime($lottery->time))) }}</td>
                                                 <td class="text-center">{{ $lottery->number }}</td>
-                                                <td class="text-center">{{ $lottery->results }}</td>
+                                                <td class="text-center">{{ implode(', ', $lottery->results) }}</td>
                                                 <td class="text-center">
                                                     <a class="btn btn-primary" href="{{ route('admin.lotteries.edit', ['$lottery' => $lottery->id]) }}">
                                                         <i class="fa fa-edit"></i>

@@ -18,9 +18,9 @@ class CreateLotteriesTable extends Migration
             $table->date('date');
             $table->time('time');
             $table->integer('number')->unsigned();
-            $table->string('kina');
-            $table->string('keno');
-            $table->string('price');
+            $table->float('kina');
+            $table->float('keno');
+            $table->float('price');
             $table->integer('place_kina')->unsigned();
             $table->integer('place_keno')->unsigned();
             $table->integer('card_kina')->unsigned();

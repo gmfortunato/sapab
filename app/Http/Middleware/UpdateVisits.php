@@ -16,23 +16,18 @@ class UpdateVisits
      */
     public function handle($request, Closure $next)
     {
-        /*
-         $today = date('Y-m-d');
-        $checkDate = Visitor::where('date', '==', $today)->get();
 
-        //Visitor::create(['date' => $today, 'total_visits' => 1]);
+        $today = date('Y-m-d');
 
+        $visitors = Visitor::whereDate('date', $today)->first();
 
-        */
-
-        /*Atualiza visitas
-        $visitors = Visitor::whereDate('date', $fromDate)->first();
-        if(empty($visitors)){
-            Visitor::insert(['date' => $fromDate, 'total_visits' => 1]);
-        }else{
-            //User::where('date', '=', $fromDate)->update(['last_visit' => $updateTo);
-        }*/
-
+        if(isset($visitors)) {
+            $updateTo = $visitors->getModel()->total_visits;
+            $updateTo++;
+            Visitor::whereDate('date', $today)->update(['total_visits' => $updateTo]);
+        }else {
+            Visitor::create(['date' => $today, 'total_visits' => 1]);
+        }
 
         return $next($request);
     }

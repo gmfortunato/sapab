@@ -75,24 +75,42 @@
                             </tr>
                             <tr>
                                 <th scope="row" class="col-sm-4 col-md-3 col-lg-2">Ponto Credenciado - Kina</th>
-                                <td>{{ $lottery->place_kina }}</td>
+                                <td>
+                                    @if(!empty($lottery->placeKina->title))
+                                        {{$lottery->placeKina->title}}
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row" class="col-sm-4 col-md-3 col-lg-2">Cupom Premiado - Kina</th>
-                                <td>{{ $lottery->card_kina }}</td>
+                                <td>
+                                    @if(!empty($lottery->card_kina))
+                                        {{$lottery->card_kina}}
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row" class="col-sm-4 col-md-3 col-lg-2">Ponto Credenciado - Keno</th>
-                                <td>{{ $lottery->place_keno }}</td>
+                                <td>
+                                    @if(!empty($lottery->placeKeno->title))
+                                        {{$lottery->placeKeno->title}}
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row" class="col-sm-4 col-md-3 col-lg-2">Cupom Premiado - Keno</th>
-                                <td>{{ $lottery->card_keno }}</td>
+                                <td>
+                                    @if(!empty($lottery->card_keno))
+                                        {{$lottery->card_keno}}
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row" class="col-sm-4 col-md-3 col-lg-2">Números Sorteados</th>
                                 <td>
-                                    {{ $lottery->results }}
+                                    @if(isset($lottery->results))
+                                     {{ implode(', ', $lottery->results) }}
+                                    @endif
                                 </td>
                             </tr>
                             </tbody>

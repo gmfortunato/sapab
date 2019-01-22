@@ -42,15 +42,16 @@
 
                                 <div class="row">
 
+                                    <!--
                                     <form method="GET" action="admin/users" accept-charset="UTF-8">
 
                                         <div class="form-group">
                                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                                                <label for="name" class="control-label">Nome</label>:
+                                                <label for="name" class="control-label">Nome: </label>
                                                 <input class="form-control" name="name" type="text" id="name">
                                             </div>
                                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                                                <label for="email" class="control-label">E-mail</label>:
+                                                <label for="email" class="control-label">E-mail: </label>
                                                 <input class="form-control" name="email" type="email" id="email">
                                             </div>
                                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
@@ -59,6 +60,9 @@
                                         </div>
 
                                     </form>
+
+                                    -->
+
                                 </div>
 
                                 <div class="paginationBlock">
@@ -82,7 +86,13 @@
                                                 <td>{{ $user->id }}</td>
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->email }}</td>
-                                                <td>{{ date('d/m/Y', strtotime($user->last_visit)) }}</td>
+                                                <td>
+                                                    @if($user->last_visit != '0000-00-00')
+                                                        {{ date('d/m/Y', strtotime($user->last_visit)) }}
+                                                    @else
+                                                        <span class="red">Nunca acessou</span>
+                                                    @endif
+                                                </td>
                                                 <td class="text-center">
                                                     <a class="btn btn-primary" href="{{ route('admin.users.edit', ['user' => $user->id]) }}">
                                                         <i class="fa fa-edit"></i>

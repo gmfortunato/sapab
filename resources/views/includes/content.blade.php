@@ -3,15 +3,7 @@
     <div class="container">
         <div class="pesquisar">
             <h2>Pesquisa de Resultados</h2>
-            <div class="form-pesquisar">
-                <form method="get" action="/pesquisar">
-                    <div class="campo-pesquisar">
-                        <i class="fa fa-search"></i>
-                        <input type="text" placeholder="Digite o número do sorteio" name="number" value="">
-                    </div>
-                    <button type="submit" class="btn btnPesquisar">Buscar</button>
-                </form>
-            </div>
+            @include('includes.form-search')
         </div>
     </div>
     <div class="container">
@@ -20,7 +12,7 @@
 
         <div class="resultados">
             @php
-            $numbersLottery = explode(',', $lastLottery->results);
+            $numbersLottery = $lastLottery->results;
             for($n = 1; $n <= 90; $n++){
                 if(in_array($n, $numbersLottery)){
                     echo "
@@ -46,12 +38,12 @@
         <h2>Últimos vencedores do sorteio</h2>
         <div class="resultado bg-amarelo">
             <div class="titulo">Kina</div>
-            <div class="texto">{{ $lastLottery->place_kina }} - {{ $lastLottery->card_kina }} - R$ {{ number_format($lastLottery->kina, 2, ',', '.') }}</div>
+            <div class="texto">{{ $lastLottery->placeKina->title }} - {{ $lastLottery->card_kina }} - R$ {{ number_format($lastLottery->kina, 2, ',', '.') }}</div>
         </div>
 
         <div class="resultado bg-azul">
             <div class="titulo">Keno</div>
-            <div class="texto">{{ $lastLottery->place_keno }} - {{ $lastLottery->card_keno }} - R$ {{ number_format($lastLottery->keno, 2, ',', '.') }}</div>
+            <div class="texto">{{ $lastLottery->placeKeno->title }} - {{ $lastLottery->card_keno }} - R$ {{ number_format($lastLottery->keno, 2, ',', '.') }}</div>
         </div>
     </div>
 </section>
